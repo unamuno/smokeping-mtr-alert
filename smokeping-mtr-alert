@@ -39,6 +39,7 @@ if __name__ == "__main__":
     parser.add_argument('loss_pattern', help='loss pattern that has triggered, supplied by smokeping')
     parser.add_argument('rtt', help='current RTT for target, supplied by smokeping')
     parser.add_argument('hostname', help='hostname of target, supplied by smokeping')
+    parser.add_argument('edgetrigger', default='0', help='is an edge trigger', nargs='?')
     parser.add_argument('--email', default='root', help='e-mail address to send report, defaults to root')
     parser.add_argument('--name', default=hostname, help='name of smokeping installation, defaults to hostname where the script runs')
     args = parser.parse_args()
@@ -53,7 +54,8 @@ Alert triggered: {alert}
 Target: {target}
 Target hostname: {hostname}
 Loss pattern: {loss_pattern}
-RTT: {rtt}"""
+RTT: {rtt}
+Edgetrigger: {edgetrigger}"""
 
     mtr_command = "mtr -n --report %s" % pipes.quote(args.hostname)
     try:
@@ -71,6 +73,7 @@ RTT: {rtt}"""
         hostname=args.hostname,
         loss_pattern=" ".join(args.loss_pattern.split()[1:]),
         rtt=" ".join(args.rtt.split()[1:]),
+        edgetrigger=args.edgetrigger,
         name=args.name,
     ))
 
