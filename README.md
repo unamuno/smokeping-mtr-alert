@@ -32,7 +32,7 @@ Configured alerts may then be attached to targets.
 menu = Demonstration
 title = Demonstration host for alerts
 host = 192.0.2.1
-alerts = someless
+alerts = someloss
 </pre>
 
 More information about the alerting syntax is available [in the SmokePing documentation](http://oss.oetiker.ch/smokeping/doc/smokeping_config.en.html#___top).
