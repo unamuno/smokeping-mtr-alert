@@ -80,15 +80,16 @@ positional arguments:
   loss_pattern   loss pattern that has triggered, supplied by smokeping
   rtt            current RTT for target, supplied by smokeping
   hostname       hostname of target, supplied by smokeping
+  edgetrigger    
 
 optional arguments:
   -h, --help     show this help message and exit
   --email EMAIL  e-mail address to send report, defaults to root
   --name NAME    name of smokeping installation, defaults to hostname where
                  the script runs
+  edgetrigger    indicates if the alert is an edgetrigger or not
 </pre>
 
 ## Limitations
 
-* No support for the `edgetrigger` option in SmokePing.
 * SmokePing will not run a script with custom parameters, necessitating the use of a wrapper script if defaults need to be overridden.
